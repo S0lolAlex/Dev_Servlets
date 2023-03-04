@@ -6,10 +6,10 @@ public class Time {
     private final String DEFAULT_TIME_ZONE = "UTC";
     public String getTime(String zone){
         ZoneId zoneId;
-        zone = zone.replace(" ","+");
         if(!isTimeZoneValid(zone)){
             zone = DEFAULT_TIME_ZONE;
         }
+        zone = zone.replace(" ","+");
         zoneId = ZoneId.of(zone);
         Instant now = Instant.now();
         ZonedDateTime zdt = ZonedDateTime.ofInstant(now,
